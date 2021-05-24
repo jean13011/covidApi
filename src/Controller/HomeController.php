@@ -11,14 +11,14 @@ class HomeController extends AbstractController
 {
 
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(CallApiService $callApiService): Response
     {
 
-
         return $this->render('home/index.html.twig', [
             'data' => $callApiService->getFranceData(),
+            'departments' =>$callApiService->getAllData(),
         ]);
     }
 }
